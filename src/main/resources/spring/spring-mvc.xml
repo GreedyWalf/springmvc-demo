@@ -28,9 +28,9 @@
     <mvc:annotation-driven/>
 
     <!-- 配置Freemarker属性文件路径 -->
-    <bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="location" value="classpath:conf/freemarker.properties"/>
-    </bean>
+    <!--<bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+        <!--<property name="location" value="classpath:conf/freemarker.properties"/>-->
+    <!--</bean>-->
 
     <!-- 配置freeMarker模板加载地址 -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -66,4 +66,19 @@
         <!--<property name="suffix" value=".jsp"></property>-->
         <!--<property name="order" value="2"></property> &lt;!&ndash; 这里加载顺序配置为2 ftl视图优先&ndash;&gt;-->
     <!--</bean>-->
+
+    <!--配置数据库连接-->
+    <context:property-placeholder location="classpath:conf/db.properties"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置jdbcTemplate-->
+    <bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
 </beans>

@@ -11,6 +11,8 @@ this is hello.ftl!!
         ${str} <br>
     </#list>
 </#if>
+<hr>
 
+<a href="/test/test2.do">跳转测试时间转换</a>
 </body>
 </html>

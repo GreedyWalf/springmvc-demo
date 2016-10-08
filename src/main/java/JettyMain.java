@@ -14,7 +14,7 @@ public class JettyMain {
         conn.setPort(8080);
         jettyServer.setConnectors(new Connector[]{conn});
         WebAppContext wah = new WebAppContext();
-        wah.setContextPath("/test-demo");
+        wah.setContextPath("/");
         wah.setWar("src/main/webapp");
         jettyServer.setHandler(wah);
         jettyServer.start();
