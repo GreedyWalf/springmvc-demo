@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                         http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+
+    <!-- 控制器
+        多个请求可以跳转到同一个页面，除了这种写法，用其他更简洁的方式替代；
+     -->
+    <!--<bean name="/add.action" class="com.qs.test2.controller.UserAction"/>-->
+    <!--<bean name="/update.action" class="com.qs.test2.controller.UserAction"/>-->
+    <!--<bean name="/delete.action" class="com.qs.test2.controller.UserAction"/>-->
+    <!--<bean name="/find.action" class="com.qs.test2.controller.UserAction"/>-->
+
+    <bean id="userActionID" class="com.qs.test2.controller.UserAction"/>
+
+    <!-- 注册映射器（handler包） -->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/delete.action">userActionID</prop>
+                <prop key="/find.action">userActionID</prop>
+                <prop key="/update.action">userActionID</prop>
+                <prop key="/add.action">userActionID</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 适配器 -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!-- 视图解析器：通过ModelAndView对象中创建的视图名找到真正的页面  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--  如果Action中书写的是视图逻辑名称，那么视图解析器就必须配置
+              如果Action中书写的视图是真实名称，那么视图解析器就是可选配置
+          -->
+        <property name="prefix" value="/view/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
