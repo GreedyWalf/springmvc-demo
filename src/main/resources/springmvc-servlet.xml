@@ -14,4 +14,5 @@
     <!-- 导入单个配置文件 -->
     <import resource="config/test-servlet.xml"/>
     <import resource="config/test2-servlet.xml"/>
+    <import resource="config/test3-servlet.xml"/>
 </beans>
