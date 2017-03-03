@@ -16,4 +16,7 @@
     <import resource="config/test2-servlet.xml"/>
     <import resource="config/test3-servlet.xml"/>
     <import resource="config/test4-servlet.xml"/>
+
+    <!-- 注解版本 -->
+    <import resource="config/test5-servlet.xml"/>
 </beans>
