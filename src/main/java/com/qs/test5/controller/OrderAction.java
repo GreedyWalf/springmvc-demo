@@ -1,9 +1,17 @@
 package com.qs.test5.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by Administrator on 2017/3/3.
@@ -37,5 +45,26 @@ public class OrderAction {
         return "success";
     }
 
+
+    @RequestMapping(value = "/saveOrder", method = RequestMethod.GET)
+    public void saveOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //request获取页面传来的参数
+        String orderName = request.getParameter("orderName");
+        String orderId = request.getParameter("orderId");
+        String orgUrl = request.getParameter("orgUrl");
+        if(StringUtils.isBlank(orderName) || StringUtils.isBlank(orderId)){
+            throw new Exception("parem orderName or orderId is null or empty");
+        }
+
+        System.out.println("orderName=" + orderName);
+        System.out.println("orderId=" + orderId);
+
+        //response响应请求，输出内容
+        response.setCharacterEncoding("utf-8");
+        PrintWriter pw = response.getWriter();
+        pw.write("<script>alert('保存成功');</script>");
+        pw.write("<script>window.location.href=\"" + orgUrl + "\"</script>");
+        pw.close();
+    }
 
 }

@@ -50,6 +50,22 @@
         </tr>
         </tbody>
     </table>
+
+    <h2>订单项</h2>
+    <div>
+        <form action="${pageContext.request.contextPath}/order/saveOrder.action" method="get">
+            <div class="form-group">
+                <label class="control-label">
+                    订单编号：<input type="text" class="form-control" name="orderId"/>
+                </label>
+                <label class="control-label">
+                    订单名称: <input type="text" class="form-control" name="orderName"/>
+                </label>
+                <input type="hidden" name="orgUrl" value="${pageContext.request.contextPath}/view/orderList.jsp"/>
+                <button type="">保存订单</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 
