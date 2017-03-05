@@ -12,6 +12,12 @@
     <h2>保存商品表单</h2>
     <form class="form-horizontal" action="${pageContext.request.contextPath}/goods/saveGoods.action" method="post">
         <div class="form-group">
+            <label class="col-sm-2 control-label">商品编号：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="goodsId" value="${goodsId}">
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">商品名称：</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" name="goodsName">
