@@ -20,4 +20,7 @@
     <!-- 注解版本 -->
     <import resource="config/test5-servlet.xml"/>
     <import resource="config/test6-servlet.xml"/>
+
+    <!-- 注解版本：json转化 -->
+    <import resource="config/test7-servlet.xml"/>
 </beans>

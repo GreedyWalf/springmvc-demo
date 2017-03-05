@@ -8,6 +8,10 @@
   <name>springmvc-demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <properties>
+    <jackson.version>1.9.10</jackson.version>
+  </properties>
+
   <dependencies>
     <!--日志包-->
     <dependency>
@@ -65,6 +69,38 @@
       <artifactId>spring-context-support</artifactId>
       <version>3.2.5.RELEASE</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-lgpl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+  <!--  <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.1.4</version>
+    </dependency>-->
 
     <!--mysql驱动包-->
     <dependency>
