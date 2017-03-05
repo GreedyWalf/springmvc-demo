@@ -4,6 +4,8 @@ package com.qs.test6.controller;
  * Created by Administrator on 2017/3/3.
  */
 public class Goods {
+    private String goodsId;
+
     //商品名称
     private String goodsName;
 
@@ -17,6 +19,14 @@ public class Goods {
     private Boolean isStandard;
 
     public Goods() {
+    }
+
+    public String getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
     }
 
     public String getGoodsName() {

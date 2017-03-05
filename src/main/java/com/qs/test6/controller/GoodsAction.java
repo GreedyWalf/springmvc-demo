@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 /**
  * Created by Administrator on 2017/3/3.
@@ -29,7 +30,7 @@ public class GoodsAction {
     }
 
     /**
-     * 通过initBinder注解 将页面传过来的参数值封装到对应的实体 方便后端取到页面传过来的值
+     * 测试3：通过initBinder注解 将页面传过来的参数值封装到对应的实体 方便后端取到页面传过来的值
      *
      * @param model  model是一个map，通过modal.get("goods")可以获取表单对应的实体
      * @param goods  页面表单对应的实体
@@ -42,6 +43,18 @@ public class GoodsAction {
         System.out.println("isStandard=" + goods.getStandard());
 
         model.addAttribute("message","保存商品成功！");
+        return "success";
+    }
+
+    /**
+     * 测试4：测试前台传递数组字符串，后台接收参数并封装为数组；
+     *
+     * @param goodsIds 前台传递过来的商品ID数组
+     */
+    @RequestMapping(value = "/deleteGoods",method = RequestMethod.POST)
+    public String editGoods(String[] goodsIds,Model model){
+        System.out.println(Arrays.toString(goodsIds));
+        model.addAttribute("message", "批量编辑商品成功");
         return "success";
     }
 }
