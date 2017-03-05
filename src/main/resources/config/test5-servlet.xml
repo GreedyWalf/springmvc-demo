@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                         http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+
+    <!-- 注解扫描（Action控制器） -->
+    <context:component-scan base-package="com.qs.test5.controller"/>
+
+    <!-- 基于注解的映射器（可选）  -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+    <!-- 基于注解的适配器（可选） -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+    <!-- 视图解析器（可选）  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--  如果Action中书写的是视图逻辑名称，那么视图解析器就必须配置
+              如果Action中书写的视图是真实名称，那么视图解析器就是可选配置
+          -->
+        <property name="prefix" value="/view/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>

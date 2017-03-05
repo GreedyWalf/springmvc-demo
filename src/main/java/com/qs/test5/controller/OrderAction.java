@@ -3,6 +3,7 @@ package com.qs.test5.controller;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -46,6 +47,9 @@ public class OrderAction {
     }
 
 
+    /**
+     * 测试2：通过传统的request和response对象 获取页面请求参数或相应数据到页面
+     */
     @RequestMapping(value = "/saveOrder", method = RequestMethod.GET)
     public void saveOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //request获取页面传来的参数
@@ -66,5 +70,4 @@ public class OrderAction {
         pw.write("<script>window.location.href=\"" + orgUrl + "\"</script>");
         pw.close();
     }
-
 }

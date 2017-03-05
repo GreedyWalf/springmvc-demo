@@ -19,4 +19,5 @@
 
     <!-- 注解版本 -->
     <import resource="config/test5-servlet.xml"/>
+    <import resource="config/test6-servlet.xml"/>
 </beans>

@@ -21,32 +21,44 @@
         <tr>
             <td>01</td>
             <td>迷人的索菲亚</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="1111"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="1111">
+            </td>
         </tr>
         <tr>
             <td>02</td>
             <td>李公子师傅</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="2222"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="2222">
+            </td>
         </tr>
         <tr>
             <td>03</td>
             <td>长风破浪会有时</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="3333"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="3333">
+            </td>
         </tr>
         <tr>
             <td>04</td>
             <td>直挂云帆济沧海</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="4444"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="4444">
+            </td>
         </tr>
         <tr>
             <td>05</td>
             <td>厉害了，我的哥</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="5555"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="5555">
+            </td>
         </tr>
         <tr>
             <td>06</td>
             <td>刚好我们遇见</td>
-            <td><input type="button" class="btnOperate" value="删除" data-id="6666"></td>
+            <td>
+                <input type="button" class="btnOperate" value="删除" data-id="6666">
+            </td>
         </tr>
         </tbody>
     </table>
