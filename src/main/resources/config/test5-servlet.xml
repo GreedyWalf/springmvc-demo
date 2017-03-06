@@ -23,9 +23,6 @@
 
     <!-- 视图解析器（可选）  -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--  如果Action中书写的是视图逻辑名称，那么视图解析器就必须配置
-              如果Action中书写的视图是真实名称，那么视图解析器就是可选配置
-          -->
         <property name="prefix" value="/view/" />
         <property name="suffix" value=".jsp"/>
     </bean>

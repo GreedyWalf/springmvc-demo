@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.*;
 
 /**
+ * 测试响应Json返回页面，包括javaBean转json；list转json；map转json；
+ *
  * Created by Administrator on 2017/3/5.
  */
 @Controller

@@ -14,9 +14,8 @@
 
     <!-- 注解扫描（Action控制器） -->
     <context:component-scan base-package="com.qs.test7.controller"/>
+    <!-- ！！没有这个配置，返回json到页面会出现406错误，有待深究 -->
     <mvc:annotation-driven />
-
-
 
     <!-- 基于注解的映射器（可选）  -->
     <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>-->

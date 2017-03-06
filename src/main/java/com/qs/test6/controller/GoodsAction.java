@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 /**
+ * 请求转发和重定向，绑定javaBean
+ *
  * Created by Administrator on 2017/3/3.
  */
 @Controller

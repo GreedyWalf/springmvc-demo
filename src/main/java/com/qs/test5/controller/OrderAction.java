@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * 注解实现springMvc及数据传递和封装
+ *
  * Created by Administrator on 2017/3/3.
  */
 @Controller
