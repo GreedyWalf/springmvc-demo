@@ -8,6 +8,12 @@
   <name>springmvc-demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <properties>
+    <jackson.version>1.9.10</jackson.version>
+    <spring.version>4.3.1.RELEASE</spring.version>
+    <hibernate.version>4.3.5.Final</hibernate.version>
+  </properties>
+
   <dependencies>
     <!--日志包-->
     <dependency>
@@ -42,35 +48,88 @@
     <!--spring相关包-->
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>3.2.5.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>3.2.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>3.2.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>3.2.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>  <!-- 配置freemarker模版路径使用 -->
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>3.2.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
-    <!--mysql驱动包-->
+    <!-- springMvc用于对象转Json使用jar包 -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- 引入hibernate jar包 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <version>1.0.1.Final</version>
+    </dependency>
+
+    <!-- aspectjweaver.jar这是Spring AOP所要用到的包 -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.7.4</version>
+    </dependency>
+
+    <!-- 上传引入jar包 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+
+    <!-- 数据连接池及数据库驱动 -->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.1.2</version>
+    </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.35</version>
+      <version>5.1.31</version>
     </dependency>
 
     <!--引入redis-->
