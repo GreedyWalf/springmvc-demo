@@ -9,6 +9,6 @@
 
     <!-- 使用 annotation -->
     <context:annotation-config/>
-    <!-- 添加注解扫描(指定扫描的基类) -->
-    <context:component-scan base-package="com.qs"/>
+    <!-- 添加注解扫描：将dao,service的实现类交由spring管理，@Repository，@Service -->
+    <context:component-scan base-package="com.qs.service.impl"/>
 </beans>

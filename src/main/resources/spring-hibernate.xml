@@ -30,11 +30,31 @@
 
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
-        <!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
+        <!-- 为sessionFactory注入数据源 -->
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:config/hibernate.cfg.xml"/>
-        <!-- //加载实体类的映射文件位置及名称 -->
+        <!-- 配置hibernate基本配置信息 -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="show_sql">${hibernate.show_sql}</prop>
+                <prop key="format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="connection.autocommit">true</prop>
+
+                <!-- 开启二级缓存 ehcache -->
+                <!--<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>-->
+                <!--<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>-->
+                <!--<prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>-->
+                <!--<prop key="hibernate.cache.provider_configuration_file_resource_path">${hibernate.cache.provider_configuration_file_resource_path}-->
+            </props>
+        </property>
+
+        <!-- xml配置 -->
+        <!--<property name="configLocation" value="classpath:config/hibernate.cfg.xml"/>-->
         <property name="mappingLocations" value="classpath:config/*.hbm.xml"/>
+
+        <!-- 扫描hibernate注解配置的entity -->
+        <!--<property name="packagesToScan" value="com.qs.entity" />-->
     </bean>
 
     <!-- 配置Spring声明式事务 -->
@@ -44,15 +64,24 @@
     <!-- 配置事务事务属性 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="add*" propagation="REQUIRED" />
-            <tx:method name="save*" propagation="REQUIRED" />
-            <tx:method name="del*" propagation="REQUIRED" />
-            <tx:method name="get*" read-only="true"/>
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="load*" propagation="SUPPORTS" read-only="true" />
+
+            <!-- 其他采用默认事务方式 -->
+            <tx:method name="*" />
         </tx:attributes>
     </tx:advice>
+
     <!-- 配置事务切点，并把切点和事务属性关联起来 -->
     <aop:config>
-        <aop:pointcut expression="execution(* com.qs.controller.*.*(..))" id="txPointcut"/>
+        <aop:pointcut expression="execution(* com.qs.service.impl.*.*(..))" id="txPointcut"/>
+        <!-- 指定在txAdvice切入点应用txAdvice事务增强处理 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 </beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 指定package值，auto-inport="true"下面的class标签无需写全路径 -->
+<hibernate-mapping package="com.qs.entity.note">
+    <class name="NoteInfo" table="t_qs_note">
+        <id name="noteId" column="note_id" type="java.lang.String">
+            <!--
+                主键生成策略：
+                    identity (mysql,db2),sequence (oracle)： 自增长；
+                    native：根据数据库类型选择上面两种方式；
+                    increment：自增长(会有并发访问的问题，一般在服务器集群环境使用会存在问题)；
+                    assigned：指定主键生成策略为手动指定主键的值；
+					uuid：指定uuid随机生成的唯一的值；
+					foreign：(外键的方式， one-to-one讲)
+            -->
+            <generator class="uuid"/>
+        </id>
+
+        <property name="userId" column="user_id" type="java.lang.String"/>
+        <property name="noteTitle" column="note_title" type="java.lang.String" length="200"/>
+        <property name="tag" column="tag" type="java.lang.String" length="200"/>
+        <property name="content" column="note_content" type="java.lang.String" length="3200"/>
+        <property name="createTime" column="create_time" type="java.util.Date"/>
+        <property name="lastModifyTime" column="last_modify_time" type="java.util.Date"/>
+    </class>
+</hibernate-mapping>
