@@ -6,6 +6,7 @@
          version="3.0">
     <display-name>springmvc-demo</display-name>
 
+    <!-- 服务启动时 查找spring和hibernate配置文件位置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:spring-hibernate.xml,classpath*:spring-bean.xml</param-value>
