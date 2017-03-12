@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 //        tx.commit();
     }
 
-    public void delete(int userId) {
+    public void delete(String userId) {
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.getTransaction();
         transaction.begin();
@@ -42,19 +42,19 @@ public class UserServiceImpl implements UserService {
         transaction.commit();
     }
 
-    public void deleteByUserId(int userId) {
+    public void deleteByUserId(String userId) {
         Session session = this.getSession();
         Query query = session.createQuery("delete from UserInfo where userId=?");
         query.setParameter(0, userId);
         query.executeUpdate();
     }
 
-    public UserInfo load(int userId) {
+    public UserInfo load(String userId) {
         Session session = sessionFactory.getCurrentSession();
         return (UserInfo) session.load(UserInfo.class, userId);
     }
 
-    public UserInfo getEntity(int userId) {
+    public UserInfo getEntity(String userId) {
         Session session = sessionFactory.getCurrentSession();
         return (UserInfo) session.get(UserInfo.class, userId);
     }

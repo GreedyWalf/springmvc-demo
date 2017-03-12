@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by Administrator on 2017/3/7.
  */
 public class UserInfo {
-    private int userId;
+    private String userId;
     private String userName;
     private String phone;
     private String sex;
@@ -16,11 +16,11 @@ public class UserInfo {
 
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

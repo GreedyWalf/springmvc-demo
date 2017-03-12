@@ -6,7 +6,7 @@
         <id name="userId" type="int">
             <column name="user_id" />
             <!-- 主键生成策略 -->
-            <generator class="native" />
+            <generator class="uuid" />
         </id>
 
         <property name="userName" type="java.lang.String">

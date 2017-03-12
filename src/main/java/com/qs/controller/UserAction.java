@@ -33,15 +33,14 @@ public class UserAction {
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(Model model) {
-        int userId = 3;
+        String userId = "1111";
         userService.deleteByUserId(userId);
         return "hello";
     }
 
     @RequestMapping(value = "/getUser")
     public String getUser(Model model){
-        int userId = 2;
-//        UserInfo userInfo = userService.load(userId);
+        String userId = "22222";
         UserInfo userInfo = userService.getEntity(userId);
         model.addAttribute("userInfo",userInfo);
         return "hello";
